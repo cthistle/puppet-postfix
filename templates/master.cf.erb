@@ -38,6 +38,11 @@ smtps     inet  n       -       n       -       -       smtpd
 <% end -%>
 <% end -%>
 <% end -%>
+<% if @content_filter == spamassassin %>
+spamassassin unix -     n       n       -       -       pipe
+     flags=Rq user=debian-spamd argv=/usr/bin/spamfilter.sh -oi -f ${sender} ${recipient}
+<% end %>
+
 #628      inet  n       -       n       -       -       qmqpd
 pickup    fifo  n       -       n       60      1       pickup
 cleanup   unix  n       -       n       -       0       cleanup
@@ -66,6 +71,7 @@ virtual   unix  -       n       n       -       -       virtual
 lmtp      unix  -       -       n       -       -       lmtp
 anvil     unix  -       -       n       -       1       anvil
 scache    unix  -       -       n       -       1       scache
+
 #
 # ====================================================================
 # Interfaces to non-Postfix software. Be sure to examine the manual
