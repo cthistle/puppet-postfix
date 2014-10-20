@@ -38,7 +38,7 @@ smtps     inet  n       -       n       -       -       smtpd
 <% end -%>
 <% end -%>
 <% end -%>
-<% if @content_filter == spamassassin %>
+<% if @smtp_content_filter == spamassassin %>
 spamassassin unix -     n       n       -       -       pipe
      flags=Rq user=debian-spamd argv=/usr/bin/spamfilter.sh -oi -f ${sender} ${recipient}
 <% end %>
