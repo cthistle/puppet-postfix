@@ -133,7 +133,7 @@ class postfix::server (
   $postgrey                = false,
   $postgrey_policy_service = undef,
   $clamav                  = false,
-  $amavisd                 = false,
+  $clamav_enabled          = false,
   # Parameters
   $command_directory      = $::postfix::params::command_directory,
   $config_directory       = $::postfix::params::config_directory,
