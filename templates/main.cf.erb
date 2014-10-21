@@ -898,7 +898,7 @@ smtpd_recipient_restrictions =
 <% if @postgrey_policy_service -%>
   check_policy_service <%= @postgrey_policy_service %>,
 <% else -%>
-  check_policy_service unix:postgrey/socket,
+  ## check_policy_service unix:postgrey/socket,
 <% end -%>
 
 <% end -%>
