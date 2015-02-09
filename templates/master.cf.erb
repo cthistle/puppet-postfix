@@ -71,7 +71,7 @@ smtps     inet  n       -       n       -       -       smtpd
 <% end -%>
 <% end -%>
 <% end -%>
-<% if @spamassassin_enabled = true -%>
+<% if @spamassassin_enabled == true -%>
 spamassassin unix -     n       n       -       -       pipe
      flags=Rq user=debian-spamd argv=/usr/bin/spamfilter.sh -oi -f ${sender} ${recipient}
 <% end -%>
