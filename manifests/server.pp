@@ -36,6 +36,7 @@ class postfix::server (
   $mailbox_command = false,
   $smtpd_banner = '$myhostname ESMTP $mail_name',
   $setgid_group = $::postfix::params::setgid_group,
+  $mailbox_size_limit = undef,
   $message_size_limit = false,
   $mail_name = false,
   $virtual_alias_domains = false,
@@ -81,12 +82,13 @@ class postfix::server (
   $smtp_use_tls = false,
   $canonical_maps = false,
   $sender_canonical_maps = false,
+  $smtp_generic_maps = false,
   $recipient_canonical_maps = false,
   $relocated_maps = false,
   $extra_main_parameters = {},
   # master.cf
   $smtp_content_filter = [],
-  $smtps_content_filter = $smtp_content_filter,
+  $smtps_content_filter = [],
   $submission = false,
   # EL5
   $submission_smtpd_enforce_tls = 'yes',
