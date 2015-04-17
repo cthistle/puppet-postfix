@@ -251,5 +251,16 @@ class postfix::server (
     postfixdir => $config_directory,
   }
 
+  logrotate::rule { 'postfix':
+    path          => '/var/log/mail.*',
+    rotate        => '14',
+    rotate_every  => 'day',
+    compress      => true,
+    delaycompress => true,
+    missingok     => true,
+    sharedscripts => true,
+    postrotate    => "reload rsyslog >/dev/null 2>&1 || true",
+  }
+
 }
 
