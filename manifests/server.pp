@@ -252,7 +252,7 @@ class postfix::server (
   }
 
   logrotate::rule { 'postfix':
-    path          => '/var/log/mail.*',
+    path          => '/var/log/mail.log',
     rotate        => '14',
     rotate_every  => 'day',
     compress      => true,
