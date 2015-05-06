@@ -157,7 +157,11 @@ class postfix::server (
   $root_group             = $::postfix::params::root_group,
   $mailq_path             = $::postfix::params::mailq_path,
   $newaliases_path        = $::postfix::params::newaliases_path,
-  $sendmail_path          = $::postfix::params::sendmail_path
+  $sendmail_path          = $::postfix::params::sendmail_path,
+  ## ASF Custom
+  $asf_mx_enabled         = false,
+  $asf_mx_content_filter  = ''
+
 ) inherits ::postfix::params {
 
   # Default has el5 files, for el6 a few defaults have changed
