@@ -42,11 +42,11 @@ scan      unix  -       -       n       -       16      smtp
 <% end -%>
 
 <% if @asf_mx_enabled -%>
-	smtp-amavis     unix    -       -       -       -       <%= @max_postfix_amavis_procs %>       smtp
-        -o smtp_data_done_timeout=1200
-        -o smtp_send_xforward_command=yes
-        -o disable_dns_lookups=yes
-        -o max_use=20
+smtp-amavis     unix    -       -       -       -       <%= @max_postfix_amavis_procs %>       smtp
+       -o smtp_data_done_timeout=1200
+       -o smtp_send_xforward_command=yes
+       -o disable_dns_lookups=yes
+       -o max_use=20
 <% end -%>
 
 <% unless @postscreen -%>
