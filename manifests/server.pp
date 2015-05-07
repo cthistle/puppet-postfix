@@ -161,7 +161,8 @@ class postfix::server (
   ## ASF Custom
   $asf_mx_enabled           = false,
   $asf_mx_content_filter    = '',
-  $max_postfix_amavis_procs = '10'
+  $max_postfix_amavis_procs = '10',
+  $max_use_postfix_amavis   = '25'
 
 ) inherits ::postfix::params {
 
