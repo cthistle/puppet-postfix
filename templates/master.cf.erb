@@ -39,6 +39,7 @@ scan      unix  -       -       n       -       16      smtp
      -o smtpd_milters=
      -o local_recipient_maps=
      -o relay_recipient_maps=
+     -o transport_maps=hash:/etc/postfix/transport_maps
 <% end -%>
 
 <% if @asf_mx_enabled -%>
