@@ -36,6 +36,7 @@ class postfix::params {
       $command_directory = '/usr/sbin'
       $config_directory = '/etc/postfix'
       $daemon_directory = '/usr/lib/postfix'
+      $shlib_directory = '/usr/lib'
       $data_directory = '/var/lib/postfix'
       $manpage_directory = '/usr/share/man'
       $readme_directory = '/usr/share/doc/postfix'
