@@ -158,7 +158,13 @@ class postfix::server (
   $root_group             = $::postfix::params::root_group,
   $mailq_path             = $::postfix::params::mailq_path,
   $newaliases_path        = $::postfix::params::newaliases_path,
-  $sendmail_path          = $::postfix::params::sendmail_path
+  $sendmail_path          = $::postfix::params::sendmail_path,
+  ## ASF Custom
+  $asf_mx_enabled           = false,
+  $asf_mx_content_filter    = '',
+  $max_postfix_amavis_procs = '10',
+  $max_use_postfix_amavis   = '25'
+
 ) inherits ::postfix::params {
 
   # Default has el5 files, for el6 a few defaults have changed
@@ -253,7 +259,7 @@ class postfix::server (
   }
 
   logrotate::rule { 'postfix':
-    path          => '/var/log/mail.*',
+    path          => '/var/log/mail.log',
     rotate        => '14',
     rotate_every  => 'day',
     compress      => true,

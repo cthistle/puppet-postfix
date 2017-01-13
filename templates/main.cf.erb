@@ -981,3 +981,7 @@ postscreen_dnsbl_action = <%= @postscreen_dnsbl_action %>
 content_filter =  scan:127.0.0.1:10026
 receive_override_options = no_address_mappings
 <% end -%>
+
+<% if @asf_mx_enabled -%>
+content_filter = <%= @asf_mx_content_filter %>
+<% end -%>
