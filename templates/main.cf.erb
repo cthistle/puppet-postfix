@@ -41,9 +41,8 @@ command_directory = <%= @command_directory %>
 #
 daemon_directory = <%= @daemon_directory %>
 
-# shared library parameter needed to make postfix work on 1604
-
 <% if @lsbdistrelease == "16.04" %>
+# shared library dir parameter needed to make postfix work on 1604
 shlib_directory = <%= @shlib_directory %>
 <% end %>
 
