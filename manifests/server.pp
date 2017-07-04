@@ -164,7 +164,16 @@ class postfix::server (
   $asf_mx_content_filter    = '',
   $max_postfix_amavis_procs = '10',
   $max_use_postfix_amavis   = '25'
-
+  ## ASF Custom Logrotate Variables
+  $postfix_logrotate_path          = '/var/log/mail.log',
+  $postfix_logrotate_rotate        = '14',
+  $postfix_logrotate_rotate_every  = 'day',
+  $postfix_logrotate_compress      = true,
+  $postfix_logrotate_delaycompress = true,
+  $postfix_logrotate_missingok     = true,
+  $postfix_logrotate_sharedscripts = true,
+  $postfix_logrotate_postrotate    = "reload rsyslog >/dev/null 2>&1 || true"
+  
 ) inherits ::postfix::params {
 
   # Default has el5 files, for el6 a few defaults have changed
@@ -259,14 +268,14 @@ class postfix::server (
   }
 
   logrotate::rule { 'postfix':
-    path          => '/var/log/mail.log',
-    rotate        => '14',
-    rotate_every  => 'day',
-    compress      => true,
-    delaycompress => true,
-    missingok     => true,
-    sharedscripts => true,
-    postrotate    => "reload rsyslog >/dev/null 2>&1 || true",
+    path          => $postfix_logrotate_path,
+    rotate        => $postfix_logrotate_rotate,
+    rotate_every  => $postfix_logrotate_rotate_every,
+    compress      => $postfix_logrotate_compress,
+    delaycompress => $postfix_logrotate_delaycompress,
+    missingok     => $postfix_logrotate_missingok,
+    sharedscripts => $postfix_logrotate_sharedscripts,
+    postrotate    => $postfix_logrotate_postrotate,
   }
 
 }
