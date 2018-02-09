@@ -166,13 +166,13 @@ class postfix::server (
   $max_use_postfix_amavis   = '25',
   ## ASF Custom Logrotate Variables
   $postfix_logrotate_path          = '/var/log/mail.log',
-  $postfix_logrotate_rotate        = '14',
+  $postfix_logrotate_rotate        = '7',
   $postfix_logrotate_rotate_every  = 'day',
   $postfix_logrotate_compress      = true,
   $postfix_logrotate_delaycompress = true,
   $postfix_logrotate_missingok     = true,
-  $postfix_logrotate_sharedscripts = true,
-  $postfix_logrotate_postrotate    = "reload rsyslog >/dev/null 2>&1 || true"
+  $postfix_logrotate_sharedscripts = false,
+  $postfix_logrotate_postrotate    = "service rsyslog rotate"
   
 ) inherits ::postfix::params {
 
